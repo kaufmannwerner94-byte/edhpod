@@ -333,12 +333,23 @@ def poll(tg: Telegram) -> dict:
         try:
             if "callback_query" in update:
                 cq = update["callback_query"]
-                if str(((cq.get("message") or {}).get("chat") or {}).get("id")) == tg.chat_id:
+                chat = str(((cq.get("message") or {}).get("chat") or {}).get("id"))
+                # Button data is "a:2026-11-27:<fingerprint>": no secrets, safe to log.
+                print("update %s: tap %s %s" % (update["update_id"], cq.get("data"),
+                                                 "" if chat == tg.chat_id else "(other chat, ignored)"))
+                if chat == tg.chat_id:
                     handle_callback(tg, cq, result)
             elif "message" in update:
                 msg = update["message"]
-                if str((msg.get("chat") or {}).get("id")) == tg.chat_id:
+                chat = str((msg.get("chat") or {}).get("id"))
+                text = (msg.get("text") or "").strip()
+                print("update %s: message %s %s" % (update["update_id"],
+                                                     text.split()[0][:20] if text.startswith("/") else "(text)",
+                                                     "" if chat == tg.chat_id else "(other chat, ignored)"))
+                if chat == tg.chat_id:
                     handle_message(tg, msg, result)
+            else:
+                print("update %s: %s (ignored)" % (update["update_id"], ",".join(k for k in update if k != "update_id")))
         except Exception as error:  # one bad update must not block the rest
             print("::warning::update %s failed: %s" % (update.get("update_id"), error))
     print("processed %d update(s)" % len(updates))
