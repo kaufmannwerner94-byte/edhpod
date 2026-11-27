@@ -1,0 +1,19 @@
+{
+  "card": "Lotus Cobra",
+  "number": "1 / 3",
+  "role": "Ramp + color fixing",
+  "works_in": "Any green deck, best with extra land drops",
+  "hook": "Play an untapped land and you get two mana out of it. One of them is any color.",
+  "reasons": [
+    "Every land that hits the battlefield makes an extra mana, tapped ones included.",
+    "Fetch lands set it off twice — once for the fetch, once for the land it grabs.",
+    "The mana is any color. Green ramp normally just hands you basics."
+  ],
+  "plays_well_with": [
+    "Exploration",
+    "Azusa, Lost but Seeking",
+    "Oracle of Mul Daya"
+  ],
+  "watch_out": "It's a 2/1, so it dies to anything. And the mana empties at end of phase — play the land once you know what you're spending it on.",
+  "question": "What's your go-to two-mana ramp in Commander?"
+}

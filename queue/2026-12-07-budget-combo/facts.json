@@ -1,0 +1,45 @@
+{
+  "total": "$10.47 / \u20ac7.43",
+  "cards": [
+    {
+      "name": "Midnight Guard",
+      "price_both": "$0.08 / \u20ac0.10",
+      "set_name": "Magic 2015",
+      "oracle_text": "Whenever another creature enters, untap this creature.",
+      "retrieved_at": "2026-11-26T12:46:42Z",
+      "scryfall_uri": "https://scryfall.com/card/m15/20/midnight-guard?utm_source=api"
+    },
+    {
+      "name": "Presence of Gond",
+      "price_both": "$0.25 / \u20ac0.13",
+      "set_name": "Starter Commander Decks",
+      "oracle_text": "Enchant creature\nEnchanted creature has \"{T}: Create a 1/1 green Elf Warrior creature token.\"",
+      "retrieved_at": "2026-11-26T12:46:43Z",
+      "scryfall_uri": "https://scryfall.com/card/scd/203/presence-of-gond?utm_source=api"
+    },
+    {
+      "name": "Heliod's Pilgrim",
+      "price_both": "$0.30 / \u20ac0.13",
+      "set_name": "Ultimate Masters",
+      "oracle_text": "When this creature enters, you may search your library for an Aura card, reveal it, put it into your hand, then shuffle.",
+      "retrieved_at": "2026-11-26T13:03:07Z",
+      "scryfall_uri": "https://scryfall.com/card/uma/19/heliods-pilgrim?utm_source=api"
+    },
+    {
+      "name": "Impact Tremors",
+      "price_both": "$2.82 / \u20ac2.12",
+      "set_name": "The List",
+      "oracle_text": "Whenever a creature you control enters, this enchantment deals 1 damage to each opponent.",
+      "retrieved_at": "2026-11-26T12:46:50Z",
+      "scryfall_uri": "https://scryfall.com/card/plst/MOC-285/impact-tremors?utm_source=api"
+    },
+    {
+      "name": "Cathars' Crusade",
+      "price_both": "$7.02 / \u20ac4.95",
+      "set_name": "Commander 2014",
+      "oracle_text": "Whenever a creature you control enters, put a +1/+1 counter on each creature you control.",
+      "retrieved_at": "2026-11-26T12:46:54Z",
+      "scryfall_uri": "https://scryfall.com/card/c14/67/cathars-crusade?utm_source=api"
+    }
+  ]
+}

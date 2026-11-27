@@ -1,0 +1,45 @@
+{
+  "format": "card-of-the-day",
+  "card": "Anguished Unmaking",
+  "source": "https://scryfall.com/card/tdc/279/anguished-unmaking?utm_source=api",
+  "slides": [
+    {
+      "number": "1 / 3",
+      "card_image": "/sessions/happy-elegant-ramanujan/mnt/EDHPod/queue/2026-12-10-card-of-the-day/images/c7ce164c-3437-440c-b462-acca491bfd91.png",
+      "card_name": "Anguished Unmaking",
+      "role": "Catch-all removal",
+      "works_in": "Any deck with white and black",
+      "price": "$1.85 / \u20ac2.35",
+      "hook": "Three mana, instant speed, exile any nonland permanent. No conditions on what it hits."
+    },
+    {
+      "card_name": "Anguished Unmaking",
+      "reasons": [
+        {
+          "text": "Exile, not destroy. Indestructible, regeneration and death triggers all stop mattering."
+        },
+        {
+          "text": "Instant speed means you hold it for the thing that actually matters."
+        },
+        {
+          "text": "About as wide as instant-speed removal gets. Commander, planeswalker, enchantment, artifact."
+        }
+      ],
+      "plays_well_with": [
+        {
+          "name": "Vindicate"
+        },
+        {
+          "name": "Mortify"
+        },
+        {
+          "name": "Utter End"
+        }
+      ],
+      "watch_out": "Three life every time. In a deck already paying life for lands and tutors, that gets real."
+    },
+    {
+      "question": "Which commander do you always save your removal for?"
+    }
+  ]
+}

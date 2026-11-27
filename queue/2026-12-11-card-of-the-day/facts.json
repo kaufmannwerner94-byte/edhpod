@@ -1,0 +1,19 @@
+{
+  "retrieved_at": "2026-11-26T13:17:45Z",
+  "name": "Anguished Unmaking",
+  "mana_cost": "{1}{W}{B}",
+  "cmc": 3.0,
+  "type_line": "Instant",
+  "oracle_text": "Exile target nonland permanent. You lose 3 life.",
+  "color_identity": [
+    "B",
+    "W"
+  ],
+  "artist": "Wesley Burt",
+  "set_name": "Tarkir: Dragonstorm Commander",
+  "released_at": "2025-04-11",
+  "commander_legal": "legal",
+  "price_eur": "\u20ac2.35",
+  "price_both": "$1.85 / \u20ac2.35",
+  "scryfall_uri": "https://scryfall.com/card/tdc/279/anguished-unmaking?utm_source=api"
+}

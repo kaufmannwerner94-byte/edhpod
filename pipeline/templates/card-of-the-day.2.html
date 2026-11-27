@@ -1,0 +1,38 @@
+<div style="width:1080px;height:1350px;box-sizing:border-box;padding:64px;background:#11131C;color:#F4EFE6;font-family:Inter,sans-serif;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+  <div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center">
+    <div style="background:#F2B544;color:#11131C;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:28px;letter-spacing:0.08em;padding:14px 28px;border-radius:999px">CARD OF THE DAY</div>
+    <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:32px;color:#A8ABBD">2 / 3</div>
+  </div>
+
+  <div data-autofit="36" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:64px;line-height:1.05">{{card_name}}</div>
+
+  <div style="display:flex;flex-direction:column;gap:20px">
+    <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:26px;letter-spacing:0.12em;color:#F2B544">WHY IT WORKS</div>
+    <!-- Own container so the numbered points breathe more than the gap under
+         the section label. -->
+    <div style="display:flex;flex-direction:column;gap:42px">
+<!--REPEAT:reasons-->
+    <div style="display:flex;flex-direction:row;gap:24px;align-items:center"><div style="width:60px;height:60px;border-radius:30px;background:#F2B544;color:#11131C;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0">{{i}}</div><div data-autofit="26" style="font-size:36px;line-height:1.2">{{text}}</div></div>
+<!--/REPEAT-->
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:16px">
+    <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:26px;letter-spacing:0.12em;color:#F2B544">PLAYS WELL WITH</div>
+    <div style="display:flex;flex-direction:row;gap:16px">
+<!--REPEAT:plays_well_with-->
+      <div data-autofit="20" style="flex:1;min-width:0;background:#1B1E2B;border-radius:20px;padding:22px 20px;font-size:30px;line-height:1.2;text-align:center;display:flex;align-items:center;justify-content:center">{{name}}</div>
+<!--/REPEAT-->
+    </div>
+  </div>
+
+  <div style="background:#1B1E2B;border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:10px">
+    <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:26px;letter-spacing:0.12em;color:#F2B544">WATCH OUT</div>
+    <div data-autofit="26" style="font-size:34px;line-height:1.25">{{watch_out}}</div>
+  </div>
+
+  <div style="display:flex;flex-direction:row;justify-content:space-between;align-items:center">
+    <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:30px">@edhpod</div>
+    <div style="font-size:28px;color:#A8ABBD">Swipe →</div>
+  </div>
+</div>

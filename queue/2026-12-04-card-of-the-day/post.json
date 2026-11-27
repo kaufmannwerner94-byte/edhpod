@@ -1,0 +1,45 @@
+{
+  "format": "card-of-the-day",
+  "card": "Feed the Swarm",
+  "source": "https://scryfall.com/card/cmm/159/feed-the-swarm?utm_source=api",
+  "slides": [
+    {
+      "number": "1 / 3",
+      "card_image": "/sessions/happy-elegant-ramanujan/mnt/EDHPod/queue/2026-12-03-card-of-the-day/images/840d02c6-3d9c-47cd-9307-978d03380d0f.png",
+      "card_name": "Feed the Swarm",
+      "role": "Removal",
+      "works_in": "Any black deck",
+      "price": "$0.22 / \u20ac0.15",
+      "hook": "Two mana. Black removal that can finally kill an enchantment."
+    },
+    {
+      "card_name": "Feed the Swarm",
+      "reasons": [
+        {
+          "text": "Enchantments were black's blind spot for twenty-seven years. A common fixed it."
+        },
+        {
+          "text": "It kills creatures too, so it's almost never a dead card in hand."
+        },
+        {
+          "text": "Two mana and sorcery speed. The life you pay scales with the problem, not with you."
+        }
+      ],
+      "plays_well_with": [
+        {
+          "name": "Go for the Throat"
+        },
+        {
+          "name": "Toxic Deluge"
+        },
+        {
+          "name": "Bojuka Bog"
+        }
+      ],
+      "watch_out": "You lose life equal to the thing's mana value. Killing a seven-drop hurts, and it adds up."
+    },
+    {
+      "question": "What enchantment finally made you find room for this?"
+    }
+  ]
+}

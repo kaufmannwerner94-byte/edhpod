@@ -1,0 +1,40 @@
+{
+  "format": "introduction",
+  "set": "Star Trek",
+  "card": "Locutus, the One Who Speaks",
+  "source": "https://scryfall.com/card/trk/245/locutus-the-one-who-speaks?utm_source=api",
+  "slides": [
+    {
+      "number": "1 / 3",
+      "set_name": "Star Trek",
+      "card_name": "Locutus, the One Who Speaks",
+      "card_image": "/sessions/happy-elegant-ramanujan/mnt/EDHPod/queue/2026-12-08-introduction/images/296f1127-14a0-42c4-9e4a-c0d929720748.png",
+      "what_it_does": "Two mana 1/1. Every artifact creature you control gets +1/+1. Drawn too late? Pay WB and discard it to deal 2 damage to a creature and gain 2 life.",
+      "best_home": "Any artifact creature deck. Thopters, Servos, Myr, Borg tokens \u2014 all of them get bigger.",
+      "take": "A lord when you need a lord and a removal spell when you don't. That's rare on a two-drop."
+    },
+    {
+      "set_name": "Star Trek",
+      "cards": [
+        {
+          "image": "/sessions/happy-elegant-ramanujan/mnt/EDHPod/queue/2026-12-08-introduction/images/853bf74d-0b61-43df-9018-0b40b624a9d1.png",
+          "name": "Command Subadjunct",
+          "take": "One mana 2/1. Every artifact creature you control gets vigilance."
+        },
+        {
+          "image": "/sessions/happy-elegant-ramanujan/mnt/EDHPod/queue/2026-12-08-introduction/images/b94a582c-11bb-4463-a826-bd0c79366752.png",
+          "name": "Primary Unimatrix Adjunct",
+          "take": "Four mana, and all your artifact creatures have double strike. With Locutus out that gets silly."
+        },
+        {
+          "image": "/sessions/happy-elegant-ramanujan/mnt/EDHPod/queue/2026-12-08-introduction/images/f91755d7-6fb9-4caf-b4b4-f21ed5572d52.png",
+          "name": "Conquest Mission",
+          "take": "Three mana. Every nontoken artifact that enters makes a 1/1 Borg. At six quest counters it makes two."
+        }
+      ]
+    },
+    {
+      "question": "Would you build the Borg artifact deck, or is it too linear?"
+    }
+  ]
+}

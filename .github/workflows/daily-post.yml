@@ -1,0 +1,161 @@
+name: Daily post
+
+# Publishes today's approved post from queue/ to Instagram at 17:00 UTC and
+# reports the outcome on Telegram. GitHub may start scheduled runs a few
+# minutes late at busy times.
+#
+# Run it by hand from the Actions tab to test: "dry run" (the default for
+# manual runs) does everything except the final publish call. The Approvals
+# workflow also starts it, with dry_run off, when you approve today's post
+# after 17:00.
+
+on:
+  schedule:
+    - cron: "0 17 * * *"   # keep in sync with POST_HOUR_UTC in pipeline/queuekit.py
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Post date YYYY-MM-DD (empty = today, UTC)"
+        required: false
+        default: ""
+      dry_run:
+        description: "Dry run: build the post on Instagram but do not publish"
+        type: boolean
+        default: true
+      allow_unapproved:
+        description: "Skip the approval check (dry runs only)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write   # commit published.json back
+  pages: write      # deploy the slides so Meta can fetch them
+  id-token: write   # required by deploy-pages
+
+concurrency:
+  group: daily-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    env:
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    steps:
+      - name: Refuse to publish unapproved content
+        if: ${{ inputs.allow_unapproved && !inputs.dry_run }}
+        run: |
+          echo "::error::allow_unapproved is only permitted together with dry_run"
+          exit 1
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pipeline/requirements.txt
+
+      - name: Install toolchain
+        run: |
+          pip install -r pipeline/requirements.txt
+          python -m playwright install --with-deps --only-shell chromium
+
+      - name: Self-test the publish logic (fake Instagram, no network)
+        run: python pipeline/test_publish.py
+
+      - name: Rebuild, render and check today's post
+        id: prepare
+        shell: bash
+        env:
+          POST_DATE: ${{ inputs.date }}
+          ALLOW_UNAPPROVED: ${{ inputs.allow_unapproved }}
+        run: |
+          args=(prepare --site _site)
+          if [ -n "$POST_DATE" ]; then args+=(--date "$POST_DATE"); fi
+          if [ "$ALLOW_UNAPPROVED" = "true" ]; then args+=(--allow-unapproved); fi
+          python pipeline/daily.py "${args[@]}"
+
+      - name: Configure Pages
+        if: steps.prepare.outputs.skip == 'false'
+        uses: actions/configure-pages@v5
+
+      - name: Upload slides
+        if: steps.prepare.outputs.skip == 'false'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy slides to GitHub Pages
+        if: steps.prepare.outputs.skip == 'false'
+        id: deploy
+        uses: actions/deploy-pages@v4
+
+      - name: Publish to Instagram
+        if: steps.prepare.outputs.skip == 'false'
+        id: publish
+        shell: bash
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_EXPECTED_USERNAME: edhpod
+          FOLDER: ${{ steps.prepare.outputs.folder }}
+          SLIDE_PATH: ${{ steps.prepare.outputs.path }}
+          PAGE_URL: ${{ steps.deploy.outputs.page_url }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          args=(publish --folder "$FOLDER" --base-url "$PAGE_URL" --path "$SLIDE_PATH")
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          python pipeline/daily.py "${args[@]}"
+
+      - name: Record publication in the repo
+        if: steps.publish.outcome == 'success' && inputs.dry_run != true
+        shell: bash
+        env:
+          FOLDER: ${{ steps.prepare.outputs.folder }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "queue/$FOLDER/published.json" "queue/$FOLDER/alt.json"
+          git commit -m "Published $FOLDER"
+          for attempt in 1 2 3; do
+            git pull --rebase --autostash && git push && exit 0
+            sleep 10
+          done
+          echo "::error::Post is live but published.json could not be pushed. The feed check prevents a double post on re-run."
+          exit 1
+
+      # ------------------------------------------------------------ Telegram
+      - name: Report on Telegram
+        if: always()
+        shell: bash
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          JOB_STATUS: ${{ job.status }}
+          SKIP: ${{ steps.prepare.outputs.skip }}
+          REASON: ${{ steps.prepare.outputs.reason }}
+          FOLDER: ${{ steps.prepare.outputs.folder }}
+          PERMALINK: ${{ steps.publish.outputs.permalink }}
+          RUNWAY: ${{ steps.publish.outputs.runway }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          [ -z "$TELEGRAM_BOT_TOKEN" ] && { echo "Telegram not configured"; exit 0; }
+          say() { python pipeline/telegram_bot.py notify "$1"; }
+          if [ "$JOB_STATUS" != "success" ]; then
+            say "🚨 Today's post failed${FOLDER:+ ($FOLDER)}. Nothing was published unless the log says otherwise. Log: $RUN_URL"
+          elif [ "$SKIP" = "true" ] && [ "$REASON" = "unapproved" ]; then
+            say "⏰ Today's post ($FOLDER) isn't approved yet, so nothing went out at 17:00 UTC. Approve its preview and it publishes right away. Send /preview $(echo "$FOLDER" | cut -c1-10) if you can't find it."
+          elif [ "$SKIP" = "true" ] && [ "$REASON" = "rejected" ]; then
+            say "⏸ Today's post ($FOLDER) was rejected, so nothing went out today. Run reschedule.py to close the gap."
+          elif [ "$DRY_RUN" = "true" ]; then
+            say "🧪 Dry run OK for $FOLDER. Instagram accepted the post, nothing was published."
+          elif [ -n "$PERMALINK" ]; then
+            msg="✅ Published $FOLDER: $PERMALINK"
+            [ "$FOLDER" != "${FOLDER%-welcome}" ] && msg="$msg  Now open it in the Instagram app → ⋯ → Pin to your profile."
+            [ -n "$RUNWAY" ] && [ "$RUNWAY" -lt 3 ] && msg="$msg  ⚠️ Only $RUNWAY approved post(s) left in the queue."
+            say "$msg"
+          fi

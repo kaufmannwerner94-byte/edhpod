@@ -1,0 +1,45 @@
+{
+  "format": "card-of-the-day",
+  "card": "Chaos Warp",
+  "source": "https://scryfall.com/card/2x2/105/chaos-warp?utm_source=api",
+  "slides": [
+    {
+      "number": "1 / 3",
+      "card_image": "/sessions/happy-elegant-ramanujan/mnt/EDHPod/queue/2026-12-05-card-of-the-day/images/0c20d8d5-a54a-4d81-9211-e82a10abdde2.png",
+      "card_name": "Chaos Warp",
+      "role": "Catch-all removal",
+      "works_in": "Any deck with red in it",
+      "price": "$0.49 / \u20ac0.33",
+      "hook": "Red's answer to anything. Enchantment, artifact, planeswalker, land \u2014 pick one, it's gone."
+    },
+    {
+      "card_name": "Chaos Warp",
+      "reasons": [
+        {
+          "text": "Red normally can't touch enchantments. This one touches everything."
+        },
+        {
+          "text": "It's a shuffle, not a destroy. Indestructible and regenerate do nothing about it."
+        },
+        {
+          "text": "Instant speed for three mana, and it's one of the cheapest cards in the format."
+        }
+      ],
+      "plays_well_with": [
+        {
+          "name": "Beast Within"
+        },
+        {
+          "name": "Generous Gift"
+        },
+        {
+          "name": "Pongify"
+        }
+      ],
+      "watch_out": "They reveal the top card and a permanent hits play. Sometimes you trade their worst card for their best."
+    },
+    {
+      "question": "Worst Chaos Warp flip you've ever watched happen?"
+    }
+  ]
+}

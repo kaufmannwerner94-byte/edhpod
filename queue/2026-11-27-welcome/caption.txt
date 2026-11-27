@@ -1,0 +1,16 @@
+Welcome to EDHPod 🃏
+
+One card. One combo. Every day — Commander content for EDH players.
+
+Three formats on rotation:
+🟡 Card of the Day — one card worth a slot in your deck
+🟢 Budget Combo — two or three cards, full decklist, real prices
+🟣 Introduction — what's actually playable from the newest set
+
+How this is made: posts are AI-assisted. Card text, prices and legality come straight from Scryfall data rather than from memory, and every combo is checked line by line before it goes up. If something is still wrong, tell me in the comments — I'd rather fix it than leave it.
+
+Prices are daily estimates in EUR from Cardmarket via Scryfall, and they move.
+
+EDHPod is unofficial Fan Content permitted under the Fan Content Policy. Not approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.
+
+#mtg #edh #commander #magicthegathering #mtgcommander

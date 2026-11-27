@@ -1,0 +1,45 @@
+{
+  "total": "$13.58 / \u20ac11.33",
+  "cards": [
+    {
+      "name": "Devoted Druid",
+      "price_both": "$1.19 / \u20ac0.52",
+      "set_name": "The List",
+      "oracle_text": "{T}: Add {G}.\nPut a -1/-1 counter on this creature: Untap this creature.",
+      "retrieved_at": "2026-11-26T12:44:07Z",
+      "scryfall_uri": "https://scryfall.com/card/plst/SHM-110/devoted-druid?utm_source=api"
+    },
+    {
+      "name": "Vizier of Remedies",
+      "price_both": "$0.18 / \u20ac0.16",
+      "set_name": "The List",
+      "oracle_text": "If one or more -1/-1 counters would be put on a creature you control, that many -1/-1 counters minus one are put on it instead.",
+      "retrieved_at": "2026-11-26T12:44:08Z",
+      "scryfall_uri": "https://scryfall.com/card/plst/AKH-38/vizier-of-remedies?utm_source=api"
+    },
+    {
+      "name": "Lightning Greaves",
+      "price_both": "$4.56 / \u20ac3.23",
+      "set_name": "Commander 2020",
+      "oracle_text": "Equipped creature has haste and shroud. (It can't be the target of spells or abilities.)\nEquip {0}",
+      "retrieved_at": "2026-11-26T12:44:05Z",
+      "scryfall_uri": "https://scryfall.com/card/c20/245/lightning-greaves?utm_source=api"
+    },
+    {
+      "name": "Duskwatch Recruiter // Krallenhorde Howler",
+      "price_both": "$0.31 / \u20ac0.19",
+      "set_name": "Innistrad Remastered",
+      "oracle_text": "{2}{G}: Look at the top three cards of your library. You may reveal a creature card from among them and put it into your hand. Put the rest on the bottom of your library in any order.\nAt the beginning of each upkeep, if no spells were cast last turn, transform this creature.\n//\nCreature spells you cast cost {1} less to cast.\nAt the beginning of each upkeep, if a player cast two or more spells last turn, transform this creature.",
+      "retrieved_at": "2026-11-26T12:50:48Z",
+      "scryfall_uri": "https://scryfall.com/card/inr/193/duskwatch-recruiter-krallenhorde-howler?utm_source=api"
+    },
+    {
+      "name": "Walking Ballista",
+      "price_both": "$7.34 / \u20ac7.23",
+      "set_name": "Aether Revolt",
+      "oracle_text": "This creature enters with X +1/+1 counters on it.\n{4}: Put a +1/+1 counter on this creature.\nRemove a +1/+1 counter from this creature: It deals 1 damage to any target.",
+      "retrieved_at": "2026-11-26T12:44:08Z",
+      "scryfall_uri": "https://scryfall.com/card/aer/181/walking-ballista?utm_source=api"
+    }
+  ]
+}

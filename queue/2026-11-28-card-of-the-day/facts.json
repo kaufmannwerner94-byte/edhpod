@@ -1,0 +1,18 @@
+{
+  "retrieved_at": "2026-11-26T12:05:41Z",
+  "name": "Lotus Cobra",
+  "mana_cost": "{1}{G}",
+  "cmc": 2.0,
+  "type_line": "Creature \u2014 Snake",
+  "oracle_text": "Landfall \u2014 Whenever a land you control enters, add one mana of any color.",
+  "color_identity": [
+    "G"
+  ],
+  "artist": "Sam Rowan",
+  "set_name": "Foundations Jumpstart",
+  "released_at": "2024-11-15",
+  "commander_legal": "legal",
+  "price_eur": "\u20ac4.46",
+  "price_both": "$6.88 / \u20ac4.46",
+  "scryfall_uri": "https://scryfall.com/card/j25/685/lotus-cobra?utm_source=api"
+}

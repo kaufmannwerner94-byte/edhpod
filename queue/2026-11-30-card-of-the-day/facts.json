@@ -1,0 +1,18 @@
+{
+  "retrieved_at": "2026-11-26T12:43:58Z",
+  "name": "Mangara, the Diplomat",
+  "mana_cost": "{3}{W}",
+  "cmc": 4.0,
+  "type_line": "Legendary Creature \u2014 Human Cleric",
+  "oracle_text": "Lifelink\nWhenever an opponent attacks with creatures, if two or more of those creatures are attacking you and/or planeswalkers you control, draw a card.\nWhenever an opponent casts their second spell each turn, draw a card.",
+  "color_identity": [
+    "W"
+  ],
+  "artist": "Howard Lyon",
+  "set_name": "The List",
+  "released_at": "2026-10-19",
+  "commander_legal": "legal",
+  "price_eur": "\u20ac0.43",
+  "price_both": "$0.50 / \u20ac0.43",
+  "scryfall_uri": "https://scryfall.com/card/plst/TDC-124/mangara-the-diplomat?utm_source=api"
+}

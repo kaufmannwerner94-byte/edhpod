@@ -1,0 +1,16 @@
+Two cards out of a bulk bin that make arbitrarily many Elves.
+
+Presence of Gond gives the enchanted creature "tap: create a 1/1 green Elf Warrior creature token". Midnight Guard untaps whenever another creature enters the battlefield. Put the aura on the Guard and the loop runs itself: tap for an Elf, the Elf entering untaps the Guard, repeat.
+
+Infinite tokens aren't a win on their own, so the list includes the payoff. Impact Tremors is the clean one — one damage to each opponent per token means the loop is lethal the moment it starts. Cathars' Crusade works if you're in white instead, though the new Elves are summoning sick, so you're swinging with the board you already had rather than the one you just made.
+
+Heliod's Pilgrim is in there because it tutors up the aura, which is the half of the combo that's genuinely hard to find otherwise.
+
+Cheapest two-card infinite you've ever assembled?
+
+Prices are daily estimates (Cardmarket via Scryfall) and move over time.
+Unofficial Fan Content. Not approved/endorsed by Wizards of the Coast.
+
+#mtg #edh #commander #mtgcommander #magicthegathering #mtgcombo #infinitecombo
+#budgetcommander #budgetmagic #commanderdeck #mtgdeckbuilding #edhrec #magicdeck
+#mtgplayer #commanderformat

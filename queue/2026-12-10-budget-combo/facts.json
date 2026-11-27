@@ -1,0 +1,37 @@
+{
+  "total": "$14.48 / \u20ac11.49",
+  "cards": [
+    {
+      "name": "Dualcaster Mage",
+      "price_both": "$3.80 / \u20ac3.24",
+      "set_name": "Commander 2021",
+      "oracle_text": "Flash\nWhen this creature enters, copy target instant or sorcery spell. You may choose new targets for the copy.",
+      "retrieved_at": "2026-11-26T12:46:57Z",
+      "scryfall_uri": "https://scryfall.com/card/c21/165/dualcaster-mage?utm_source=api"
+    },
+    {
+      "name": "Twinflame",
+      "price_both": "$1.01 / \u20ac1.39",
+      "set_name": "Secrets of Strixhaven Commander",
+      "oracle_text": "Strive \u2014 This spell costs {2}{R} more to cast for each target beyond the first.\nChoose any number of target creatures you control. For each of them, create a token that's a copy of that creature, except it has haste. Exile those tokens at the beginning of the next end step.",
+      "retrieved_at": "2026-11-26T12:46:57Z",
+      "scryfall_uri": "https://scryfall.com/card/soc/258/twinflame?utm_source=api"
+    },
+    {
+      "name": "Heat Shimmer",
+      "price_both": "$6.85 / \u20ac4.74",
+      "set_name": "Lorwyn",
+      "oracle_text": "Create a token that's a copy of target creature, except it has haste and \"At the beginning of the end step, exile this token.\"",
+      "retrieved_at": "2026-11-26T12:46:58Z",
+      "scryfall_uri": "https://scryfall.com/card/lrw/175/heat-shimmer?utm_source=api"
+    },
+    {
+      "name": "Impact Tremors",
+      "price_both": "$2.82 / \u20ac2.12",
+      "set_name": "The List",
+      "oracle_text": "Whenever a creature you control enters, this enchantment deals 1 damage to each opponent.",
+      "retrieved_at": "2026-11-26T12:46:50Z",
+      "scryfall_uri": "https://scryfall.com/card/plst/MOC-285/impact-tremors?utm_source=api"
+    }
+  ]
+}

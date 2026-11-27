@@ -1,0 +1,45 @@
+{
+  "format": "card-of-the-day",
+  "card": "Skullclamp",
+  "source": "https://scryfall.com/card/dst/140/skullclamp?utm_source=api",
+  "slides": [
+    {
+      "number": "1 / 3",
+      "card_image": "/sessions/happy-elegant-ramanujan/mnt/EDHPod/queue/2026-12-07-card-of-the-day/images/55318397-de3c-47ea-a088-72a24df5c8fa.png",
+      "card_name": "Skullclamp",
+      "role": "Card draw engine",
+      "works_in": "Any deck making 1/1 tokens",
+      "price": "$6.63 / \u20ac4.19",
+      "hook": "One mana. Equip for one, your 1/1 dies, you draw two cards. Repeat."
+    },
+    {
+      "card_name": "Skullclamp",
+      "reasons": [
+        {
+          "text": "Every 1/1 token in your deck becomes 'draw two cards' for one mana."
+        },
+        {
+          "text": "It's colorless. There's no deck that can't run it."
+        },
+        {
+          "text": "The +1/-1 is the engine, not a drawback. That's the whole card."
+        }
+      ],
+      "plays_well_with": [
+        {
+          "name": "Bitterblossom"
+        },
+        {
+          "name": "Hangarback Walker"
+        },
+        {
+          "name": "Ophiomancer"
+        }
+      ],
+      "watch_out": "It kills your own one-toughness creatures. Don't clamp the mana dork you still need."
+    },
+    {
+      "question": "What's the best thing you've ever clamped?"
+    }
+  ]
+}

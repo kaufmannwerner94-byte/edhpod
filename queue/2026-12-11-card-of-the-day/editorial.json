@@ -1,0 +1,19 @@
+{
+  "card": "Anguished Unmaking",
+  "number": "1 / 3",
+  "role": "Catch-all removal",
+  "works_in": "Any deck with white and black",
+  "hook": "Three mana, instant speed, exile any nonland permanent. No conditions on what it hits.",
+  "reasons": [
+    "Exile, not destroy. Indestructible, regeneration and death triggers all stop mattering.",
+    "Instant speed means you hold it for the thing that actually matters.",
+    "About as wide as instant-speed removal gets. Commander, planeswalker, enchantment, artifact."
+  ],
+  "plays_well_with": [
+    "Vindicate",
+    "Mortify",
+    "Utter End"
+  ],
+  "watch_out": "Three life every time. In a deck already paying life for lands and tutors, that gets real.",
+  "question": "Which commander do you always save your removal for?"
+}

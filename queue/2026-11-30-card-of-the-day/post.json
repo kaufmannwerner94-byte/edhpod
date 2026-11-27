@@ -1,0 +1,45 @@
+{
+  "format": "card-of-the-day",
+  "card": "Mangara, the Diplomat",
+  "source": "https://scryfall.com/card/plst/TDC-124/mangara-the-diplomat?utm_source=api",
+  "slides": [
+    {
+      "number": "1 / 3",
+      "card_image": "/sessions/happy-elegant-ramanujan/mnt/EDHPod/queue/2026-11-29-card-of-the-day/images/d3c00b40-5c27-4c67-9c39-6fc6d4cf3504.png",
+      "card_name": "Mangara, the Diplomat",
+      "role": "Card draw + deterrent",
+      "works_in": "White decks that want to be left alone",
+      "price": "$0.50 / \u20ac0.43",
+      "hook": "Four mana in white that draws cards while you sit there doing nothing."
+    },
+    {
+      "card_name": "Mangara, the Diplomat",
+      "reasons": [
+        {
+          "text": "White's oldest problem is card draw. This is an engine that fires while you do nothing."
+        },
+        {
+          "text": "It only triggers when two or more creatures come at you or your planeswalkers. People notice and go elsewhere."
+        },
+        {
+          "text": "Second trigger is free value. Anyone casting a second spell in a turn hands you a card."
+        }
+      ],
+      "plays_well_with": [
+        {
+          "name": "Esper Sentinel"
+        },
+        {
+          "name": "Smothering Tithe"
+        },
+        {
+          "name": "Archivist of Oghma"
+        }
+      ],
+      "watch_out": "One big attacker doesn't trigger it. Mangara rewards you against crowds, not single threats."
+    },
+    {
+      "question": "What does your white deck actually do for card draw?"
+    }
+  ]
+}

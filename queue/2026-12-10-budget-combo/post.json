@@ -1,0 +1,66 @@
+{
+  "format": "budget-combo",
+  "combo": "INFINITE HASTY COPIES",
+  "sources": [
+    "https://scryfall.com/card/c21/165/dualcaster-mage?utm_source=api",
+    "https://scryfall.com/card/soc/258/twinflame?utm_source=api",
+    "https://scryfall.com/card/lrw/175/heat-shimmer?utm_source=api",
+    "https://scryfall.com/card/plst/MOC-285/impact-tremors?utm_source=api"
+  ],
+  "slides": [
+    {
+      "number": "1 / 3",
+      "combo_name": "INFINITE HASTY COPIES",
+      "combo_cards": [
+        {
+          "image": "/sessions/happy-elegant-ramanujan/mnt/EDHPod/queue/2026-12-09-budget-combo/images/defcc4a3-40e0-4f5d-b23c-6cd6a614abc1.png"
+        },
+        {
+          "image": "/sessions/happy-elegant-ramanujan/mnt/EDHPod/queue/2026-12-09-budget-combo/images/85c863ef-b266-410d-87b3-ced791f99966.png"
+        }
+      ],
+      "steps": [
+        {
+          "text": "Cast Twinflame targeting a creature you control. Hold priority."
+        },
+        {
+          "text": "Flash in Dualcaster Mage. Its trigger copies Twinflame, this time targeting Dualcaster."
+        },
+        {
+          "text": "The copy makes a hasty Dualcaster, which copies Twinflame again. The original just sits there."
+        }
+      ],
+      "total_usd": "$14.48",
+      "total_eur": "\u20ac11.49"
+    },
+    {
+      "decklist": [
+        {
+          "name": "Dualcaster Mage",
+          "role": "Combo",
+          "price": "$3.80 / \u20ac3.24"
+        },
+        {
+          "name": "Twinflame",
+          "role": "Combo",
+          "price": "$1.01 / \u20ac1.39"
+        },
+        {
+          "name": "Heat Shimmer",
+          "role": "Backup",
+          "price": "$6.85 / \u20ac4.74"
+        },
+        {
+          "name": "Impact Tremors",
+          "role": "Wins",
+          "price": "$2.82 / \u20ac2.12"
+        }
+      ],
+      "total": "$14.48 / \u20ac11.49",
+      "swap": "Heat Shimmer is just a second Twinflame and it's the priciest card here. Cut it if you're counting."
+    },
+    {
+      "question": "Jankiest infinite combo you've actually pulled off at a table?"
+    }
+  ]
+}

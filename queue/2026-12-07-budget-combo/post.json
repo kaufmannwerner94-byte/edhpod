@@ -1,0 +1,72 @@
+{
+  "format": "budget-combo",
+  "combo": "INFINITE ELF TOKENS",
+  "sources": [
+    "https://scryfall.com/card/m15/20/midnight-guard?utm_source=api",
+    "https://scryfall.com/card/scd/203/presence-of-gond?utm_source=api",
+    "https://scryfall.com/card/uma/19/heliods-pilgrim?utm_source=api",
+    "https://scryfall.com/card/plst/MOC-285/impact-tremors?utm_source=api",
+    "https://scryfall.com/card/c14/67/cathars-crusade?utm_source=api"
+  ],
+  "slides": [
+    {
+      "number": "1 / 3",
+      "combo_name": "INFINITE ELF TOKENS",
+      "combo_cards": [
+        {
+          "image": "/sessions/happy-elegant-ramanujan/mnt/EDHPod/queue/2026-12-06-budget-combo/images/56b6390b-607b-4e10-946d-a4ac24908e08.png"
+        },
+        {
+          "image": "/sessions/happy-elegant-ramanujan/mnt/EDHPod/queue/2026-12-06-budget-combo/images/cd68e154-d092-4004-bc58-5554d807e26a.png"
+        }
+      ],
+      "steps": [
+        {
+          "text": "Put Presence of Gond on Midnight Guard."
+        },
+        {
+          "text": "Tap the Guard to make a 1/1 Elf."
+        },
+        {
+          "text": "The Elf entering untaps the Guard. Go again, as long as you like."
+        }
+      ],
+      "total_usd": "$10.47",
+      "total_eur": "\u20ac7.43"
+    },
+    {
+      "decklist": [
+        {
+          "name": "Midnight Guard",
+          "role": "Combo",
+          "price": "$0.08 / \u20ac0.10"
+        },
+        {
+          "name": "Presence of Gond",
+          "role": "Combo",
+          "price": "$0.25 / \u20ac0.13"
+        },
+        {
+          "name": "Heliod's Pilgrim",
+          "role": "Finds it",
+          "price": "$0.30 / \u20ac0.13"
+        },
+        {
+          "name": "Impact Tremors",
+          "role": "Wins",
+          "price": "$2.82 / \u20ac2.12"
+        },
+        {
+          "name": "Cathars' Crusade",
+          "role": "Wins",
+          "price": "$7.02 / \u20ac4.95"
+        }
+      ],
+      "total": "$10.47 / \u20ac7.43",
+      "swap": "No red? Cathars' Crusade finishes it in white. Stop at a few hundred counters and swing with whatever isn't summoning sick."
+    },
+    {
+      "question": "Two cards nobody drafts, and they end the game. Why isn't this everywhere?"
+    }
+  ]
+}

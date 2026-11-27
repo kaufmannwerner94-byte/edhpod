@@ -1,0 +1,23 @@
+{
+  "number": "1 / 3",
+  "set_code": "trk",
+  "card": "Mr. Spock, Science Officer",
+  "what_it_does": "Four mana 2/4. If you would draw a card, you draw two instead. Every draw, not just your draw step.",
+  "best_home": "Blue decks that already draw. On its own it does nothing. Next to a draw engine it doubles the whole thing.",
+  "take": "Put a second draw doubler alongside it and you get four cards, not three. The two effects feed each other.",
+  "more": [
+    {
+      "card": "Captain Kathryn Janeway",
+      "take": "Four mana in green. An extra land drop every turn, and every creature you play explores."
+    },
+    {
+      "card": "Crystalline Entity",
+      "take": "Eight mana 7/7 flier. Cast it and every nonartifact creature dies. It isn't one."
+    },
+    {
+      "card": "The Unicomplex",
+      "take": "A land. Untapped if you already have two, and it either surveils or puts a creature back on top."
+    }
+  ],
+  "question": "Is Spock making your deck, or is four mana too much for a body that does nothing?"
+}

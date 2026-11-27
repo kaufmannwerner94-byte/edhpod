@@ -1,0 +1,18 @@
+{
+  "retrieved_at": "2026-11-26T12:44:02Z",
+  "name": "Feed the Swarm",
+  "mana_cost": "{1}{B}",
+  "cmc": 2.0,
+  "type_line": "Sorcery",
+  "oracle_text": "Destroy target creature or enchantment an opponent controls. You lose life equal to that permanent's mana value.",
+  "color_identity": [
+    "B"
+  ],
+  "artist": "Andrey Kuzinskiy",
+  "set_name": "Commander Masters",
+  "released_at": "2023-08-04",
+  "commander_legal": "legal",
+  "price_eur": "\u20ac0.15",
+  "price_both": "$0.22 / \u20ac0.15",
+  "scryfall_uri": "https://scryfall.com/card/cmm/159/feed-the-swarm?utm_source=api"
+}

@@ -1,0 +1,33 @@
+{
+  "number": "1 / 3",
+  "combo_name": "INFINITE HASTY COPIES",
+  "combo_cards": [
+    "Dualcaster Mage",
+    "Twinflame"
+  ],
+  "steps": [
+    "Cast Twinflame targeting a creature you control. Hold priority.",
+    "Flash in Dualcaster Mage. Its trigger copies Twinflame, this time targeting Dualcaster.",
+    "The copy makes a hasty Dualcaster, which copies Twinflame again. The original just sits there."
+  ],
+  "decklist": [
+    {
+      "card": "Dualcaster Mage",
+      "role": "Combo"
+    },
+    {
+      "card": "Twinflame",
+      "role": "Combo"
+    },
+    {
+      "card": "Heat Shimmer",
+      "role": "Backup"
+    },
+    {
+      "card": "Impact Tremors",
+      "role": "Wins"
+    }
+  ],
+  "swap": "Heat Shimmer is just a second Twinflame and it's the priciest card here. Cut it if you're counting.",
+  "question": "Jankiest infinite combo you've actually pulled off at a table?"
+}

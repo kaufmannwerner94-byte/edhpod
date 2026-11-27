@@ -1,0 +1,45 @@
+{
+  "total": "$16.95 / \u20ac9.47",
+  "cards": [
+    {
+      "name": "Isochron Scepter",
+      "price_both": "$9.38 / \u20ac5.56",
+      "set_name": "Secret Lair Countdown",
+      "oracle_text": "Imprint \u2014 When this artifact enters, you may exile an instant card with mana value 2 or less from your hand.\n{2}, {T}: You may copy the exiled card. If you do, you may cast the copy without paying its mana cost.",
+      "retrieved_at": "2026-11-26T12:45:10Z",
+      "scryfall_uri": "https://scryfall.com/card/slc/9/isochron-scepter?utm_source=api"
+    },
+    {
+      "name": "Dramatic Reversal",
+      "price_both": "$0.45 / \u20ac0.53",
+      "set_name": "Kaladesh",
+      "oracle_text": "Untap all nonland permanents you control.",
+      "retrieved_at": "2026-11-26T12:45:11Z",
+      "scryfall_uri": "https://scryfall.com/card/kld/44/dramatic-reversal?utm_source=api"
+    },
+    {
+      "name": "Sol Ring",
+      "price_both": "$2.03 / \u20ac0.78",
+      "set_name": "Zendikar Rising Commander",
+      "oracle_text": "{T}: Add {C}{C}.",
+      "retrieved_at": "2026-11-26T12:45:12Z",
+      "scryfall_uri": "https://scryfall.com/card/znc/120/sol-ring?utm_source=api"
+    },
+    {
+      "name": "Arcane Signet",
+      "price_both": "$0.62 / \u20ac0.38",
+      "set_name": "Midnight Hunt Commander",
+      "oracle_text": "{T}: Add one mana of any color in your commander's color identity.",
+      "retrieved_at": "2026-11-26T12:45:11Z",
+      "scryfall_uri": "https://scryfall.com/card/mic/157/arcane-signet?utm_source=api"
+    },
+    {
+      "name": "Thran Dynamo",
+      "price_both": "$4.47 / \u20ac2.22",
+      "set_name": "Commander Masters",
+      "oracle_text": "{T}: Add {C}{C}{C}.",
+      "retrieved_at": "2026-11-26T12:45:12Z",
+      "scryfall_uri": "https://scryfall.com/card/cmm/415/thran-dynamo?utm_source=api"
+    }
+  ]
+}

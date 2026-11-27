@@ -1,0 +1,18 @@
+Two cards, well under a euro for the pair, and any deck with green and white in it has infinite mana.
+
+Devoted Druid taps for green and can untap itself by putting a -1/-1 counter on it. Vizier of Remedies shaves one counter off every batch of -1/-1 counters headed for your creatures, so the Druid's single counter gets shaved to zero every single time. The untap is free and the Druid never shrinks.
+
+Vizier is a white card, so this is a Selesnya combo, not a mono-green one. Worth knowing before you go looking for it.
+
+The part everyone forgets at the table: the Druid is summoning sick the turn it lands. That is what Lightning Greaves is doing in the list. Without haste you spend a full turn cycle sitting behind a 0/2 that every opponent can see, and somebody will do something about it. Greaves hands out shroud too, so your own protection spells can't target the Druid either.
+
+Once the mana is flowing, Duskwatch Recruiter digs until it finds Walking Ballista, and Ballista turns green mana into damage.
+
+What's the cheapest combo hiding in one of your decks?
+
+Prices are daily estimates (Cardmarket via Scryfall) and move over time.
+Unofficial Fan Content. Not approved/endorsed by Wizards of the Coast.
+
+#mtg #edh #commander #mtgcommander #magicthegathering #mtgcombo #infinitecombo
+#budgetcommander #budgetmagic #commanderdeck #mtgdeckbuilding #edhrec #magicdeck
+#mtgplayer #commanderformat

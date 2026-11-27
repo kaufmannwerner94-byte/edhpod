@@ -1,0 +1,19 @@
+{
+  "card": "Mystic Remora",
+  "number": "1 / 3",
+  "role": "Early card draw",
+  "works_in": "Any blue deck. Best on turn one.",
+  "hook": "One blue mana. Every noncreature spell they cast either draws you a card or costs them four.",
+  "reasons": [
+    "Turn one Remora in a four-player pod is usually three or four cards before it goes away.",
+    "The four-mana tax isn't a real choice early. Nobody has it spare on turn two.",
+    "Treat it like a tempo spell, not a fixture. Let it go once it has paid for itself."
+  ],
+  "plays_well_with": [
+    "Rhystic Study",
+    "Esper Sentinel",
+    "Smothering Tithe"
+  ],
+  "watch_out": "Cumulative upkeep. One mana, then two, then three. Decide early which turn you stop paying.",
+  "question": "How many cards does Remora usually get you before you let it die?"
+}

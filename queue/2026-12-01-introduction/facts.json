@@ -1,0 +1,93 @@
+{
+  "set": {
+    "object": "set",
+    "id": "b47039dc-da5a-448c-8feb-e77d458108a6",
+    "code": "trk",
+    "mtgo_code": "trk",
+    "arena_code": "trk",
+    "tcgplayer_id": 24766,
+    "name": "Star Trek",
+    "uri": "https://api.scryfall.com/sets/b47039dc-da5a-448c-8feb-e77d458108a6",
+    "scryfall_uri": "https://scryfall.com/sets/trk",
+    "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Atrk&unique=prints",
+    "released_at": "2026-11-13",
+    "set_type": "expansion",
+    "card_count": 587,
+    "digital": false,
+    "nonfoil_only": false,
+    "foil_only": false,
+    "icon_svg_uri": "https://svgs.scryfall.io/sets/trk.svg?1795410000",
+    "_fetched_at": "2026-11-26T12:00:05Z"
+  },
+  "lead": {
+    "retrieved_at": "2026-11-26T13:15:08Z",
+    "name": "U.S.S. Enterprise-D, Galaxy-Class",
+    "mana_cost": "{3}",
+    "cmc": 3.0,
+    "type_line": "Legendary Artifact \u2014 Spacecraft",
+    "oracle_text": "Whenever one or more charge counters are put on U.S.S. Enterprise-D for the first time each turn, exile the top card of your library. You may play that card this turn.\nStation (Tap another creature you control: Put charge counters equal to its power on this Spacecraft. Station only as a sorcery. It's an artifact creature at 7+.)\n7+ | Flying, vigilance",
+    "color_identity": [],
+    "artist": "Pablo Mendoza",
+    "set_name": "Star Trek",
+    "released_at": "2026-11-13",
+    "commander_legal": "legal",
+    "price_eur": "\u20ac0.14",
+    "price_both": "$0.48 / \u20ac0.14",
+    "scryfall_uri": "https://scryfall.com/card/trk/273/uss-enterprise-d-galaxy-class?utm_source=api"
+  },
+  "more": [
+    {
+      "retrieved_at": "2026-11-26T13:15:08Z",
+      "name": "Deep Space 9",
+      "mana_cost": "{9}",
+      "cmc": 9.0,
+      "type_line": "Legendary Artifact \u2014 Spacecraft",
+      "oracle_text": "When Deep Space 9 enters and at the beginning of your upkeep, exile the top four cards of your library. Put all permanent cards exiled this way onto the battlefield.\nStation (Tap another creature you control: Put charge counters equal to its power on this Spacecraft. Station only as a sorcery.)\n9+ | Creatures you control get +3/+3.",
+      "color_identity": [],
+      "artist": "Paolo Puggioni",
+      "set_name": "Star Trek",
+      "released_at": "2026-11-13",
+      "commander_legal": "legal",
+      "price_eur": "\u20ac25.46",
+      "price_both": "$43.36 / \u20ac25.46",
+      "scryfall_uri": "https://scryfall.com/card/trk/263/deep-space-9?utm_source=api"
+    },
+    {
+      "retrieved_at": "2026-11-26T13:15:09Z",
+      "name": "Captain Jean-Luc Picard",
+      "mana_cost": "{2}{W}",
+      "cmc": 3.0,
+      "type_line": "Legendary Creature \u2014 Human Officer",
+      "oracle_text": "Other creatures you control get +1/+1.\nWhenever you cast a creature or Spacecraft spell, create a 1/1 red Officer creature token.\nTap seven untapped Officers you control: Search your library for a Spacecraft card, put it onto the battlefield with seven charge counters on it, then shuffle.",
+      "color_identity": [
+        "W"
+      ],
+      "artist": "Anna Pavleeva",
+      "set_name": "Star Trek",
+      "released_at": "2026-11-13",
+      "commander_legal": "legal",
+      "price_eur": "\u20ac6.73",
+      "price_both": "$9.38 / \u20ac6.73",
+      "scryfall_uri": "https://scryfall.com/card/trk/7/captain-jean-luc-picard?utm_source=api"
+    },
+    {
+      "retrieved_at": "2026-11-26T13:15:09Z",
+      "name": "Borg Cube",
+      "mana_cost": "{5}{W}{B}",
+      "cmc": 7.0,
+      "type_line": "Artifact \u2014 Spacecraft",
+      "oracle_text": "Affinity for artifact creatures\nWhenever this Spacecraft enters or attacks, assimilate a creature card exiled with it. If you can't, exile up to one target creature. (To assimilate a card, put it onto the battlefield under your control with a +1/+1 counter. It's a Borg artifact creature and loses all other creature types.)\nStation\n12+ | Artifact creatures you control have flying.",
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "artist": "Alexander Forssberg",
+      "set_name": "Star Trek",
+      "released_at": "2026-11-13",
+      "commander_legal": "legal",
+      "price_eur": "\u20ac3.53",
+      "price_both": "$27.13 / \u20ac3.53",
+      "scryfall_uri": "https://scryfall.com/card/trk/227/borg-cube?utm_source=api"
+    }
+  ]
+}

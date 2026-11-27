@@ -1,0 +1,19 @@
+{
+  "card": "Feed the Swarm",
+  "number": "1 / 3",
+  "role": "Removal",
+  "works_in": "Any black deck",
+  "hook": "Two mana. Black removal that can finally kill an enchantment.",
+  "reasons": [
+    "Enchantments were black's blind spot for twenty-seven years. A common fixed it.",
+    "It kills creatures too, so it's almost never a dead card in hand.",
+    "Two mana and sorcery speed. The life you pay scales with the problem, not with you."
+  ],
+  "plays_well_with": [
+    "Go for the Throat",
+    "Toxic Deluge",
+    "Bojuka Bog"
+  ],
+  "watch_out": "You lose life equal to the thing's mana value. Killing a seven-drop hurts, and it adds up.",
+  "question": "What enchantment finally made you find room for this?"
+}

@@ -1,0 +1,97 @@
+{
+  "set": {
+    "object": "set",
+    "id": "b47039dc-da5a-448c-8feb-e77d458108a6",
+    "code": "trk",
+    "mtgo_code": "trk",
+    "arena_code": "trk",
+    "tcgplayer_id": 24766,
+    "name": "Star Trek",
+    "uri": "https://api.scryfall.com/sets/b47039dc-da5a-448c-8feb-e77d458108a6",
+    "scryfall_uri": "https://scryfall.com/sets/trk",
+    "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Atrk&unique=prints",
+    "released_at": "2026-11-13",
+    "set_type": "expansion",
+    "card_count": 587,
+    "digital": false,
+    "nonfoil_only": false,
+    "foil_only": false,
+    "icon_svg_uri": "https://svgs.scryfall.io/sets/trk.svg?1795410000",
+    "_fetched_at": "2026-11-26T12:00:05Z"
+  },
+  "lead": {
+    "retrieved_at": "2026-11-26T13:15:19Z",
+    "name": "Locutus, the One Who Speaks",
+    "mana_cost": "{W}{B}",
+    "cmc": 2.0,
+    "type_line": "Legendary Artifact Creature \u2014 Borg",
+    "oracle_text": "Artifact creatures you control get +1/+1.\n{W}{B}, Discard this card: It deals 2 damage to target creature. You gain 2 life.",
+    "color_identity": [
+      "B",
+      "W"
+    ],
+    "artist": "Ariel Orea",
+    "set_name": "Star Trek",
+    "released_at": "2026-11-13",
+    "commander_legal": "legal",
+    "price_eur": "\u20ac0.02",
+    "price_both": "$0.22 / \u20ac0.02",
+    "scryfall_uri": "https://scryfall.com/card/trk/245/locutus-the-one-who-speaks?utm_source=api"
+  },
+  "more": [
+    {
+      "retrieved_at": "2026-11-26T13:15:20Z",
+      "name": "Command Subadjunct",
+      "mana_cost": "{W}",
+      "cmc": 1.0,
+      "type_line": "Artifact Creature \u2014 Borg",
+      "oracle_text": "Artifact creatures you control have vigilance.",
+      "color_identity": [
+        "W"
+      ],
+      "artist": "Alex Negrea",
+      "set_name": "Star Trek",
+      "released_at": "2026-11-13",
+      "commander_legal": "legal",
+      "price_eur": "\u20ac0.21",
+      "price_both": "$0.20 / \u20ac0.21",
+      "scryfall_uri": "https://scryfall.com/card/trk/9/command-subadjunct?utm_source=api"
+    },
+    {
+      "retrieved_at": "2026-11-26T13:15:20Z",
+      "name": "Primary Unimatrix Adjunct",
+      "mana_cost": "{3}{W}",
+      "cmc": 4.0,
+      "type_line": "Artifact Creature \u2014 Borg",
+      "oracle_text": "Artifact creatures you control have double strike.",
+      "color_identity": [
+        "W"
+      ],
+      "artist": "Jodie Muir",
+      "set_name": "Star Trek",
+      "released_at": "2026-11-13",
+      "commander_legal": "legal",
+      "price_eur": "\u20ac0.02",
+      "price_both": "$1.04 / \u20ac0.02",
+      "scryfall_uri": "https://scryfall.com/card/trk/30/primary-unimatrix-adjunct?utm_source=api"
+    },
+    {
+      "retrieved_at": "2026-11-26T13:15:21Z",
+      "name": "Conquest Mission",
+      "mana_cost": "{2}{W}",
+      "cmc": 3.0,
+      "type_line": "Enchantment",
+      "oracle_text": "Whenever a nontoken artifact you control enters, put a quest counter on this enchantment. Create a 1/1 colorless Borg artifact creature token. If this enchantment has six or more quest counters on it, create two of those tokens instead.",
+      "color_identity": [
+        "W"
+      ],
+      "artist": "Mark Spears",
+      "set_name": "Star Trek",
+      "released_at": "2026-11-13",
+      "commander_legal": "legal",
+      "price_eur": "\u20ac0.16",
+      "price_both": "$0.29 / \u20ac0.16",
+      "scryfall_uri": "https://scryfall.com/card/trk/10/conquest-mission?utm_source=api"
+    }
+  ]
+}

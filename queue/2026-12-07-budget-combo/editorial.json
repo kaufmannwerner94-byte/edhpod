@@ -1,0 +1,37 @@
+{
+  "number": "1 / 3",
+  "combo_name": "INFINITE ELF TOKENS",
+  "combo_cards": [
+    "Midnight Guard",
+    "Presence of Gond"
+  ],
+  "steps": [
+    "Put Presence of Gond on Midnight Guard.",
+    "Tap the Guard to make a 1/1 Elf.",
+    "The Elf entering untaps the Guard. Go again, as long as you like."
+  ],
+  "decklist": [
+    {
+      "card": "Midnight Guard",
+      "role": "Combo"
+    },
+    {
+      "card": "Presence of Gond",
+      "role": "Combo"
+    },
+    {
+      "card": "Heliod's Pilgrim",
+      "role": "Finds it"
+    },
+    {
+      "card": "Impact Tremors",
+      "role": "Wins"
+    },
+    {
+      "card": "Cathars' Crusade",
+      "role": "Wins"
+    }
+  ],
+  "swap": "No red? Cathars' Crusade finishes it in white. Stop at a few hundred counters and swing with whatever isn't summoning sick.",
+  "question": "Two cards nobody drafts, and they end the game. Why isn't this everywhere?"
+}

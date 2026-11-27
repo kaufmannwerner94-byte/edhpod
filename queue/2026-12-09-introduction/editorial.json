@@ -1,0 +1,23 @@
+{
+  "number": "1 / 3",
+  "set_code": "trk",
+  "card": "Locutus, the One Who Speaks",
+  "what_it_does": "Two mana 1/1. Every artifact creature you control gets +1/+1. Drawn too late? Pay WB and discard it to deal 2 damage to a creature and gain 2 life.",
+  "best_home": "Any artifact creature deck. Thopters, Servos, Myr, Borg tokens — all of them get bigger.",
+  "take": "A lord when you need a lord and a removal spell when you don't. That's rare on a two-drop.",
+  "more": [
+    {
+      "card": "Command Subadjunct",
+      "take": "One mana 2/1. Every artifact creature you control gets vigilance."
+    },
+    {
+      "card": "Primary Unimatrix Adjunct",
+      "take": "Four mana, and all your artifact creatures have double strike. With Locutus out that gets silly."
+    },
+    {
+      "card": "Conquest Mission",
+      "take": "Three mana. Every nontoken artifact that enters makes a 1/1 Borg. At six quest counters it makes two."
+    }
+  ],
+  "question": "Would you build the Borg artifact deck, or is it too linear?"
+}

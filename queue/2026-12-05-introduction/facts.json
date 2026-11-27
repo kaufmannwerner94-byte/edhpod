@@ -1,0 +1,94 @@
+{
+  "set": {
+    "object": "set",
+    "id": "b47039dc-da5a-448c-8feb-e77d458108a6",
+    "code": "trk",
+    "mtgo_code": "trk",
+    "arena_code": "trk",
+    "tcgplayer_id": 24766,
+    "name": "Star Trek",
+    "uri": "https://api.scryfall.com/sets/b47039dc-da5a-448c-8feb-e77d458108a6",
+    "scryfall_uri": "https://scryfall.com/sets/trk",
+    "search_uri": "https://api.scryfall.com/cards/search?include_extras=true&include_variations=true&order=set&q=e%3Atrk&unique=prints",
+    "released_at": "2026-11-13",
+    "set_type": "expansion",
+    "card_count": 587,
+    "digital": false,
+    "nonfoil_only": false,
+    "foil_only": false,
+    "icon_svg_uri": "https://svgs.scryfall.io/sets/trk.svg?1795410000",
+    "_fetched_at": "2026-11-26T12:00:05Z"
+  },
+  "lead": {
+    "retrieved_at": "2026-11-26T13:15:17Z",
+    "name": "Mr. Spock, Science Officer",
+    "mana_cost": "{2}{U}{U}",
+    "cmc": 4.0,
+    "type_line": "Legendary Creature \u2014 Vulcan Human Scientist",
+    "oracle_text": "If you would draw a card, draw two cards instead.",
+    "color_identity": [
+      "U"
+    ],
+    "artist": "Colin Boyer",
+    "set_name": "Star Trek",
+    "released_at": "2026-11-13",
+    "commander_legal": "legal",
+    "price_eur": "\u20ac8.63",
+    "price_both": "$13.29 / \u20ac8.63",
+    "scryfall_uri": "https://scryfall.com/card/trk/74/mr-spock-science-officer?utm_source=api"
+  },
+  "more": [
+    {
+      "retrieved_at": "2026-11-26T13:15:18Z",
+      "name": "Captain Kathryn Janeway",
+      "mana_cost": "{3}{G}",
+      "cmc": 4.0,
+      "type_line": "Legendary Creature \u2014 Human Officer",
+      "oracle_text": "You may play an additional land on each of your turns.\nWhenever Captain Janeway or another creature you control enters, that creature explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on the creature, then put the card back or put it into your graveyard.)",
+      "color_identity": [
+        "G"
+      ],
+      "artist": "Jason Pastrana",
+      "set_name": "Star Trek",
+      "released_at": "2026-11-13",
+      "commander_legal": "legal",
+      "price_eur": "\u20ac2.70",
+      "price_both": "$8.02 / \u20ac2.70",
+      "scryfall_uri": "https://scryfall.com/card/trk/187/captain-kathryn-janeway?utm_source=api"
+    },
+    {
+      "retrieved_at": "2026-11-26T13:15:18Z",
+      "name": "Crystalline Entity",
+      "mana_cost": "{8}",
+      "cmc": 8.0,
+      "type_line": "Artifact Creature \u2014 Elemental",
+      "oracle_text": "Flying\nWhen this creature enters, if you cast it, destroy all nonartifact creatures.",
+      "color_identity": [],
+      "artist": "David \u00c1lvarez",
+      "set_name": "Star Trek",
+      "released_at": "2026-11-13",
+      "commander_legal": "legal",
+      "price_eur": "\u20ac3.64",
+      "price_both": "$6.00 / \u20ac3.64",
+      "scryfall_uri": "https://scryfall.com/card/trk/261/crystalline-entity?utm_source=api"
+    },
+    {
+      "retrieved_at": "2026-11-26T13:15:19Z",
+      "name": "The Unicomplex",
+      "mana_cost": "",
+      "cmc": 0.0,
+      "type_line": "Land",
+      "oracle_text": "This land enters tapped unless you control two or more other lands.\nWhen this land enters untapped, choose one \u2014\n\u2022 Put target creature card from your graveyard on top of your library.\n\u2022 Surveil 1.\n{T}: Add {B}.",
+      "color_identity": [
+        "B"
+      ],
+      "artist": "JB Casacop",
+      "set_name": "Star Trek",
+      "released_at": "2026-11-13",
+      "commander_legal": "legal",
+      "price_eur": "\u20ac0.91",
+      "price_both": "$1.66 / \u20ac0.91",
+      "scryfall_uri": "https://scryfall.com/card/trk/304/the-unicomplex?utm_source=api"
+    }
+  ]
+}

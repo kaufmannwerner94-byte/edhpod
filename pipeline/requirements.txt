@@ -1,0 +1,4 @@
+# Render + publish toolchain. The daily workflow installs exactly this.
+playwright>=1.49,<2
+pillow>=10
+requests>=2.31

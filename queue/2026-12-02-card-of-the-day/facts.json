@@ -1,0 +1,18 @@
+{
+  "retrieved_at": "2026-11-26T12:44:00Z",
+  "name": "Mystic Remora",
+  "mana_cost": "{U}",
+  "cmc": 1.0,
+  "type_line": "Enchantment",
+  "oracle_text": "Cumulative upkeep {1} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)\nWhenever an opponent casts a noncreature spell, you may draw a card unless that player pays {4}.",
+  "color_identity": [
+    "U"
+  ],
+  "artist": "Ken Meyer, Jr.",
+  "set_name": "Ice Age",
+  "released_at": "1995-06-03",
+  "commander_legal": "legal",
+  "price_eur": "\u20ac9.26",
+  "price_both": "$11.83 / \u20ac9.26",
+  "scryfall_uri": "https://scryfall.com/card/ice/87/mystic-remora?utm_source=api"
+}
