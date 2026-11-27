@@ -78,11 +78,15 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A -- ':(glob)queue/*/approved.json' ':(glob)queue/*/rejected.json' ':(glob)queue/*/preview.json'
-          if git diff --cached --quiet; then
+          # Only decision files. Listed first, because `git add` aborts when a
+          # pattern matches nothing (e.g. no approvals yet on the first run).
+          changed=$(git status --porcelain --untracked-files=all -- queue \
+                    | awk '{print $NF}' | grep -E '/(approved|rejected|preview)\.json$' || true)
+          if [ -z "$changed" ]; then
             echo "nothing to commit"
             exit 0
           fi
+          git add -A -- $changed
           git commit -m "Approvals via Telegram"
           for attempt in 1 2 3; do
             git pull --rebase --autostash && git push && exit 0
