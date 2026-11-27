@@ -1,10 +1,23 @@
 #!/usr/bin/env python3
 """
-Instagram Graph API client for EDHPod (Instagram Login, Creator account).
+Instagram Graph API client for EDHPod.
 
-    IG_ACCESS_TOKEN=... python3 instagram.py whoami
-    IG_ACCESS_TOKEN=... python3 instagram.py limit
-    IG_ACCESS_TOKEN=... python3 instagram.py refresh --out /path/to/new-token
+    python3 instagram.py whoami        # asks for the token if IG_ACCESS_TOKEN is unset
+    python3 instagram.py limit
+    python3 instagram.py refresh --out /path/to/new-token
+
+Two ways Meta hands out tokens, selected with IG_LOGIN:
+
+unified (default)
+    "API setup with Unified login" — the only option Meta offers new apps since
+    late October 2026. A Business Integration System User token from a business
+    portfolio. Calls go to graph.facebook.com; the token does not expire, so
+    `refresh` only verifies it still works. The Instagram account id comes from
+    /me/assigned_instagram_accounts, or from IG_USER_ID if set.
+
+instagram
+    "API setup with Instagram login", for apps created before that change.
+    Calls go to graph.instagram.com with a 60-day token that `refresh` renews.
 
 Only the official publishing API is used — the one Meta permits for your own
 account. Nothing here logs in as you or touches Instagram's private app API,
@@ -40,9 +53,16 @@ import time
 
 import requests
 
-API_BASE = os.environ.get("IG_API_BASE", "https://graph.instagram.com")
-# Graph API versions live roughly two years. v24.0 shipped October 2025.
-API_VERSION = os.environ.get("IG_API_VERSION", "v24.0")
+HOSTS = {"unified": "https://graph.facebook.com", "instagram": "https://graph.instagram.com"}
+# Graph API versions live roughly two years. v26.0 shipped July 2026.
+DEFAULT_VERSION = {"unified": "v26.0", "instagram": "v24.0"}
+
+
+def login_mode() -> str:
+    mode = (os.environ.get("IG_LOGIN") or "unified").lower()
+    if mode not in HOSTS:
+        raise SystemExit("IG_LOGIN must be 'unified' or 'instagram', not %r" % mode)
+    return mode
 
 # Meta error codes that mean "try again shortly" rather than "you did it wrong".
 TRANSIENT_CODES = {1, 2, 4, 17, 341, 368, 9004, 9007, 32, 613}
@@ -65,6 +85,9 @@ class Instagram:
         self.token = token
         self.http = session or requests.Session()
         self._user_id = None
+        self.mode = login_mode()
+        self.base = os.environ.get("IG_API_BASE") or HOSTS[self.mode]
+        self.version = os.environ.get("IG_API_VERSION") or DEFAULT_VERSION[self.mode]
 
     # ------------------------------------------------------------------ plumbing
 
@@ -72,7 +95,7 @@ class Instagram:
         return str(text).replace(self.token, "***")
 
     def _call(self, method: str, path: str, versioned: bool = True, **params) -> dict:
-        url = "%s/%s%s" % (API_BASE, API_VERSION + "/" if versioned else "", path.lstrip("/"))
+        url = "%s/%s%s" % (self.base, self.version + "/" if versioned else "", path.lstrip("/"))
         params = {k: v for k, v in params.items() if v is not None}
         params["access_token"] = self.token
         try:
@@ -115,12 +138,31 @@ class Instagram:
     # ------------------------------------------------------------------ account
 
     def me(self) -> dict:
-        return self._retrying("GET", "me", fields="user_id,username,account_type")
+        """{"user_id", "username", "account_type"} for the Instagram account."""
+        if self.mode == "instagram":
+            return self._retrying("GET", "me", fields="user_id,username,account_type")
+        data = self._retrying("GET", self.user_id, fields="id,username")
+        return {"user_id": data["id"], "username": data.get("username"),
+                "account_type": "unified login"}
 
     @property
     def user_id(self) -> str:
-        if not self._user_id:
-            self._user_id = self.me()["user_id"]
+        if self._user_id:
+            return self._user_id
+        if self.mode == "instagram":
+            self._user_id = self._retrying("GET", "me", fields="user_id")["user_id"]
+        elif os.environ.get("IG_USER_ID"):
+            self._user_id = os.environ["IG_USER_ID"]
+        else:
+            # A system user token belongs to the system user, not to Instagram;
+            # the account it may publish to is whatever was assigned to it.
+            accounts = self._retrying("GET", "me/assigned_instagram_accounts").get("data", [])
+            if len(accounts) != 1:
+                raise InstagramError(
+                    "this token has %d Instagram accounts assigned, expected exactly 1. "
+                    "Assign @edhpod to the system user in the business portfolio, or set "
+                    "IG_USER_ID." % len(accounts))
+            self._user_id = accounts[0]["id"]
         return self._user_id
 
     def publishing_limit(self) -> dict:
@@ -233,8 +275,10 @@ class Instagram:
     def refresh(self) -> dict:
         """
         Exchange the long-lived token for a fresh 60-day one. Meta only allows
-        this once the token is at least 24 hours old.
+        this once the token is at least 24 hours old. Instagram-login mode only.
         """
+        if self.mode != "instagram":
+            raise InstagramError("Unified-login tokens do not expire and cannot be refreshed")
         return self._call(
             "GET", "refresh_access_token", versioned=False, grant_type="ig_refresh_token"
         )
@@ -258,6 +302,12 @@ def main() -> int:
         print("@%s  user_id=%s  type=%s" % (me.get("username"), me.get("user_id"), me.get("account_type")))
     elif args.command == "limit":
         print(ig.publishing_limit())
+    elif args.command == "refresh" and ig.mode != "instagram":
+        # Nothing to renew; prove the token still works so a revoked one is
+        # noticed within a week rather than at 17:00 on a posting day.
+        who = ig.me()
+        print("unified-login token does not expire; it still works for @%s" % who.get("username"),
+              file=sys.stderr)
     elif args.command == "refresh":
         data = ig.refresh()
         new = data.get("access_token")

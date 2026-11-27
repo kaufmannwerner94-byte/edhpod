@@ -33,6 +33,7 @@ class FakeMeta:
         self.reset()
 
     def reset(self):
+        self.mode = "instagram"
         self.containers = {}
         self.feed = []
         self.publish_calls = 0
@@ -66,7 +67,13 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(200, b"\xff\xd8fakejpeg", "image/jpeg")
         assert q.get("access_token") == "test-token", "token missing"
         if parts[1:] == ["me"]:
+            if META.mode == "unified":  # a system user is not an Instagram account
+                return self._send(200, {"id": "999", "name": "edhpod-publisher"})
             return self._send(200, {"user_id": USER, "username": "edhpod", "account_type": "MEDIA_CREATOR"})
+        if parts[1:] == ["me", "assigned_instagram_accounts"]:
+            return self._send(200, {"data": [{"id": USER}]})
+        if parts[1:] == [USER] and q.get("fields") == "id,username":
+            return self._send(200, {"id": USER, "username": "edhpod"})
         if parts[1:] == [USER, "media"]:
             return self._send(200, {"data": list(reversed(META.feed))})
         obj = parts[1]
@@ -105,12 +112,14 @@ class PublishTest(unittest.TestCase):
         threading.Thread(target=cls.server.serve_forever, daemon=True).start()
         base = "http://127.0.0.1:%d" % cls.server.server_address[1]
         cls.pages = base + "/pages"
-        os.environ.update(IG_API_BASE=base, IG_API_VERSION="v24.0",
+        os.environ.update(IG_API_BASE=base, IG_API_VERSION="v26.0",
                           IG_ACCESS_TOKEN="test-token", IG_EXPECTED_USERNAME="edhpod")
         os.environ.pop("GITHUB_OUTPUT", None)
         sys.path.insert(0, str(HERE))
         import daily, instagram, queuekit
         cls.daily, cls.queuekit = daily, queuekit
+        global testkit
+        import testkit
         instagram.time.sleep = lambda s: None  # recovery waits are real-time otherwise
         daily.time.sleep = lambda s: None
 
@@ -118,13 +127,16 @@ class PublishTest(unittest.TestCase):
     def tearDownClass(cls):
         cls.server.shutdown()
 
+    MODE = "instagram"
+
     def setUp(self):
         META.reset()
+        META.mode = self.MODE
+        os.environ["IG_LOGIN"] = self.MODE
+        os.environ.pop("IG_USER_ID", None)
         self.tmp = Path(tempfile.mkdtemp())
         self.queuekit.QUEUE = self.tmp
-        src = HERE.parent / "queue" / "2026-11-27-card-of-the-day"
-        self.folder = self.tmp / src.name
-        shutil.copytree(src, self.folder, ignore=shutil.ignore_patterns("approved.json", "published.json"))
+        self.folder = testkit.make_post(self.tmp, "2026-11-28-card-of-the-day")
         (self.folder / "alt.json").write_text(json.dumps(["alt one", "alt two", "alt three"]))
 
     def tearDown(self):
@@ -201,9 +213,7 @@ class PublishTest(unittest.TestCase):
         self.assertTrue((self.folder / "published.json").exists())
 
     def test_welcome_is_a_single_image_post(self):
-        src = HERE.parent / "queue" / "2026-11-26-welcome"
-        self.folder = self.tmp / src.name
-        shutil.copytree(src, self.folder, ignore=shutil.ignore_patterns("approved.json", "published.json"))
+        self.folder = testkit.make_post(self.tmp, "2026-11-27-welcome")
         (self.folder / "alt.json").write_text(json.dumps(["welcome alt"]))
         self.approve()
         code, out = self.run_publish()
@@ -220,6 +230,18 @@ class PublishTest(unittest.TestCase):
         self.approve()
         _, out = self.run_publish()
         self.assertNotIn("test-token", out)
+
+
+class UnifiedLoginPublishTest(PublishTest):
+    """The same guarantees with a Unified-login system user token, which is
+    what Meta gives every app created since late October 2026."""
+    MODE = "unified"
+
+    def test_account_comes_from_assigned_accounts(self):
+        import instagram
+        ig = instagram.Instagram("test-token")
+        self.assertEqual(ig.user_id, USER)
+        self.assertEqual(ig.me()["username"], "edhpod")
 
 
 if __name__ == "__main__":

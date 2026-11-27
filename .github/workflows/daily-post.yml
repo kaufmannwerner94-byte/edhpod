@@ -101,6 +101,8 @@ jobs:
         shell: bash
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_LOGIN: ${{ vars.IG_LOGIN }}        # empty = unified (default)
+          IG_USER_ID: ${{ vars.IG_USER_ID }}    # empty = looked up from the token
           IG_EXPECTED_USERNAME: edhpod
           FOLDER: ${{ steps.prepare.outputs.folder }}
           SLIDE_PATH: ${{ steps.prepare.outputs.path }}

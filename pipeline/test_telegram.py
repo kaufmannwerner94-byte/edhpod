@@ -79,10 +79,9 @@ class TelegramTest(unittest.TestCase):
         self.qk.QUEUE = self.tmp
         self.qk.today_utc = lambda: "2026-11-28"
         self.qk.utc_hour = lambda: 10
-        src = HERE.parent / "queue"
-        keep = shutil.ignore_patterns("approved.json", "rejected.json", "preview.json", "published.json")
+        import testkit
         for name in ("2026-11-28-budget-combo", "2026-11-29-card-of-the-day", "2026-11-26-welcome"):
-            shutil.copytree(src / name, self.tmp / name, ignore=keep)
+            testkit.make_post(self.tmp, name)
         self.tg = self.bot.client()
 
     def tearDown(self):

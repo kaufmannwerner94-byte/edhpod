@@ -1,12 +1,13 @@
-name: Refresh Instagram token
+name: Check Instagram token
 
-# Instagram long-lived tokens expire after 60 days and can be refreshed once
-# they are at least 24 hours old. Weekly leaves seven chances before expiry;
-# a failure here emails you, and you have weeks to fix it.
+# Weekly. With a Unified-login token (the default, and the only kind Meta gives
+# new apps), the token never expires, so this only proves it still works: a
+# revoked token is reported on Telegram days before a posting run needs it.
 #
-# Needs a second secret, SECRETS_PAT: a fine-grained GitHub token for this
-# repository with "Secrets: Read and write". The built-in GITHUB_TOKEN is not
-# allowed to update secrets.
+# With an older Instagram-login token (repo variable IG_LOGIN=instagram) it
+# also renews the 60-day token. That needs a second secret, SECRETS_PAT: a
+# fine-grained GitHub token with "Secrets: Read and write", because the
+# built-in GITHUB_TOKEN may not update secrets.
 
 on:
   schedule:
@@ -17,7 +18,7 @@ permissions:
   contents: read
 
 jobs:
-  refresh:
+  check:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
@@ -29,17 +30,31 @@ jobs:
 
       - run: pip install requests
 
-      - name: Refresh and store the token
+      - name: Check (and if needed renew) the token
         shell: bash
         env:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_LOGIN: ${{ vars.IG_LOGIN }}
+          IG_USER_ID: ${{ vars.IG_USER_ID }}
           GH_TOKEN: ${{ secrets.SECRETS_PAT }}
         run: |
           out="$RUNNER_TEMP/ig.token"
           python pipeline/instagram.py refresh --out "$out"
-          # The new token is verified by instagram.py before it is written;
-          # an empty file must never overwrite a working secret.
-          test -s "$out"
-          echo "::add-mask::$(cat "$out")"
-          gh secret set IG_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY" < "$out"
-          rm -f "$out"
+          # Only Instagram-login mode writes a new token. instagram.py verifies
+          # it before writing, and an empty file never overwrites the secret.
+          if [ -s "$out" ]; then
+            echo "::add-mask::$(cat "$out")"
+            gh secret set IG_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY" < "$out"
+            rm -f "$out"
+            echo "token renewed"
+          fi
+
+      - name: Report a problem on Telegram
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          [ -z "$TELEGRAM_BOT_TOKEN" ] && exit 0
+          python pipeline/telegram_bot.py notify "🔑 The Instagram token check failed, so posting will fail too until it's fixed. Log: $RUN_URL"

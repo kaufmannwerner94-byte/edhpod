@@ -16,7 +16,7 @@ UTC            ├─ today's post approved? no → Telegram: "not approved yet"
                ├─ publish via the official Instagram API
                └─ Telegram: "✅ Published <link>"  or  "🚨 failed <log link>"
 
-weekly         "Refresh Instagram token" workflow (the token expires after 60 days)
+weekly         "Check Instagram token" workflow (alerts on Telegram if the token stopped working)
 ```
 
 **What you do by hand:** tap Approve or Reject in Telegram. There are also two one-time steps the Instagram API can't do: pin the welcome post (a single tap, and Telegram reminds you) and paste the bio.
@@ -88,36 +88,47 @@ Do the parts in this order. Each secret you create goes into the GitHub repo in 
    |---|---|
    | `TELEGRAM_BOT_TOKEN` | from Part 1, step 3 |
    | `TELEGRAM_CHAT_ID` | from Part 1, step 5 |
-   | `SECRETS_PAT` | from Part 2, step 4 |
+   | `SECRETS_PAT` | from Part 2, step 4 (only needed for old Instagram-login tokens; harmless to set) |
    | `IG_ACCESS_TOKEN` | from Part 3 below |
 
    As soon as the two Telegram secrets exist, previews start arriving within about 15 minutes. You can approve posts before Instagram is connected.
 
-### Part 3 — Instagram API token (20 minutes, browser)
+### Part 3 — Instagram API token (30 minutes, browser)
 
-You need a Facebook account to log in to Meta's developer site. Use your own; it doesn't appear anywhere on the channel.
+Meta gives new apps only **"API setup with Unified login"** (since late October 2026). That setup needs three things: a free **business portfolio** containing @edhpod, a **system user** in it, and a token for that system user. Upside: that token **never expires**.
 
-1. Go to **developers.facebook.com** and log in. If it's your first time, click **Get started** and register as a developer (it confirms your email and phone).
-2. **My Apps → Create app.**
-   - App name: `EDHPod Publisher`. Contact email: yours.
-   - Use case: **Manage messaging & content on Instagram**.
-   - Business portfolio: **I don't want to connect a business portfolio yet**.
-   - Continue through the summary → **Create app**. Re-enter your Facebook password if asked.
-3. In the app's left menu, open **Use cases → Customize** next to the Instagram use case, or **Instagram → API setup with Instagram business login**.
-   - If there is a button **Add all required permissions**, click it. You need `instagram_business_basic` and `instagram_business_content_publish`.
-   - **If you only see "API setup with Unified login" and no Instagram-login option, stop and tell Claude.** That is a different token type, and the code would need adjusting.
-4. Under **1. Generate access tokens → Add account**, log in as **@edhpod** in the popup and allow the access.
-   - If Meta asks you to add an **Instagram Tester** role: choose it, search `edhpod`, click **Add**.
-   - Then accept the invite in the Instagram app: **Settings → Website permissions / Apps and websites → Tester invites → Accept**.
-   - Then refresh the developer page.
-5. Click **Generate token** next to `edhpod`, log in again, and copy the token. It is shown **only once** and is valid for 60 days. The weekly workflow keeps renewing it.
-6. Check it works:
-   ```bash
-   python3 pipeline/instagram.py whoami     # asks for the token; expect: @edhpod  user_id=…  type=MEDIA_CREATOR
+You need a Facebook account to log in. It doesn't appear anywhere on the channel.
+
+**A. Business portfolio with @edhpod in it**
+1. Go to **business.facebook.com** → **Create a business portfolio**. Name: `EDHPod`. Enter your name and email.
+2. Open **Settings** (gear icon) → **Accounts → Instagram accounts → Add**, and log in as **@edhpod**.
+
+**B. Connect the app to the portfolio**
+3. In the portfolio settings: **Accounts → Apps → Add → Connect an app ID**. Paste the App ID from the developer dashboard; it's at the top of the app page, or under **App settings → Basic**.
+   - If the developer dashboard's "API setup with Unified login" page shows a **Connect business portfolio** button instead, use that.
+
+**C. System user and token**
+4. In the portfolio settings: **Users → System users → Add**. Name: `edhpod-publisher`. Role: **Admin**.
+5. With the system user selected, click **Assign assets**:
+   - **Instagram accounts → edhpod →** full control (or at least content/publishing)
+   - **Apps → EDHPod Publisher →** full control
+6. Click **Generate token** (on the system user):
+   - App: **EDHPod Publisher**
+   - Expiration: **Never**
+   - Permissions: **`instagram_basic`** and **`instagram_content_publish`**. Also tick `business_management` if it's offered.
+   - Generate, then copy the token. It is shown only once.
+
+   If the developer dashboard's **API setup with Unified login** page offers a wizard to *create a configuration with a system user access token*, that's the same thing. Use the same permissions there.
+
+**D. Check and save**
+7. In the terminal (tcsh is fine):
    ```
-7. Save it as the repo secret **`IG_ACCESS_TOKEN`** (Part 2, step 6).
+   /work/u19d26/miniforge3/envs/pygem3.9/bin/python3 pipeline/instagram.py whoami
+   ```
+   Paste the token at the prompt. Expect `@edhpod  user_id=…  type=unified login`.
+8. Save it as the repo secret **`IG_ACCESS_TOKEN`**.
 
-Leave the app in **Development** mode. You don't need App Review or Business Verification to publish to your own account.
+You don't need App Review or Business Verification to publish to your own account. Leave the app in development mode.
 
 ### Part 4 — Test without posting
 
@@ -127,7 +138,7 @@ Leave the app in **Development** mode. You don't need App Review or Business Ver
    - Enter the date of a queued post.
    - Click **Run workflow**.
 2. A few minutes later Telegram says **🧪 Dry run OK**. That proves Instagram fetched the slides and accepted the post.
-3. The next day, run **Actions → Refresh Instagram token** once by hand (the token must be at least 24 hours old) to prove the refresh works.
+3. Run **Actions → Check Instagram token** once by hand. A green run means the weekly check works.
 
 ### Part 5 — Go live
 
@@ -150,7 +161,7 @@ Leave the app in **Development** mode. You don't need App Review or Business Ver
 - **If a post was rejected, or its date passed**, close the gap with `python3 pipeline/reschedule.py <date> --apply`, then commit and push.
 - **New content** is written by Claude into `queue/` as usual and pushed. The previews come to Telegram on their own.
 - **Approving locally still works:** `python3 pipeline/approve.py <date>`, then commit and push.
-- **Tokens:** the Instagram token renews itself weekly. The GitHub token (`SECRETS_PAT`) does not — renew it before the date in your calendar.
+- **Tokens:** the Instagram token never expires; a weekly check alerts you on Telegram if Meta revokes it. The GitHub token (`github_pat_…`) does expire. Renew it before the date in your calendar; it's only needed for pushing from this machine.
 
 ## Files
 
@@ -166,4 +177,4 @@ Leave the app in **Development** mode. You don't need App Review or Business Ver
 | `pipeline/reschedule.py` | Move unpublished posts to new dates |
 | `pipeline/build_welcome_post.py` | The pinned welcome / disclaimer post |
 | `pipeline/test_publish.py`, `test_telegram.py` | Tests against fake Instagram and Telegram |
-| `.github/workflows/` | `daily-post`, `approvals`, `refresh-token` |
+| `.github/workflows/` | `daily-post`, `approvals`, `refresh-token` (token check) |
